@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html ng-app="app">
+
+<head>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">    
+</head>
+
+<!-- define angular controller -->
+<body ng-controller="mainCtrl">
+
+  <nav class="navbar navbar-default navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/">Job Search Log</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="#list"><i class="fa"></i>Activity List</a></li>
+        <li><a href="#new"><i class="fa"></i>New Activity</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+        <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="main">
+    <div ng-view></div>
+  </div>
+  
+  <footer class="text-center">
+    <p>Job Search Log</p>
+  </footer>
+  
+</body>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/activityListCtrl.js"></script>
+    <script src="scripts/controllers/newActivityCtrl.js"></script>
+
+</html>
+

@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "contactDate": "08/14/2015",
+        "contactType": "employer",
+        "contactMethod": "online",
+        "activityType": "application",
+        "position": "Sr. Software Engineer",
+        "employer": "Tableau",
+        "contact": "joe@example.com",
+        "jobRefNumber": "12345"
+    },
+        {
+        "id": 2,
+        "contactDate": "08/14/2015",
+        "contactType": "employer",
+        "contactMethod": "online",
+        "activityType": "application",
+        "position": "Software Engineer",
+        "employer": "Google",
+        "contact": "bob@example.com",
+        "jobRefNumber": "BR1245"
+    },
+        {
+        "id": 3,
+        "contactDate": "08/14/2015",
+        "contactType": "employer",
+        "contactMethod": "online",
+        "activityType": "application",
+        "position": "Software Engineer, Java",
+        "employer": "Adobe",
+        "contact": "tom@example.com",
+        "jobRefNumber": "5432A"
+    }
+
+]

@@ -1,0 +1,27 @@
+<div class="jumbotron text-center">
+<div class="text-left">Search: <input ng-model="query"></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Contact Date</td>
+            <td>Activity Type</td>
+            <td>Contact Type</td>
+            <td>Job Ref #</td>
+            <td>Position</td>
+            <td>Employer</td>
+            <td>Contact</td>
+        </tr>
+    </thead>
+    <tbody class="">
+        <tr ng-repeat="activity in activities | filter:query">
+            <td class="col-md-1">{{activity.contactDate}}</td>
+            <td class="col-md-1">{{activity.activityType}}</td>
+            <td class="col-md-1">{{activity.contactType}}</td>
+            <td class="col-md-1">{{activity.jobRefNumber}}</td>
+            <td class="col-md-3">{{activity.position}}</td>
+            <td class="col-md-2">{{activity.employer}}</td>
+            <td class="col-md-3">{{activity.contact}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

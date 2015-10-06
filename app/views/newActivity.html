@@ -1,35 +1,35 @@
 <div class="jumbotron text-right">
-    <form name="activity">
+    <form name="activity" ng-controller="newActivityCtrl" ng-submit="addActivity()">
 
         <div class="row">
-                  <div class="col-md-4"><label for="contactDate">Contact date</label></div>
-                  <div class="col-md-8"><input type="text" id="contactDate" class="form-control" placeholder="MM/DD/YY"></input></div>
+                  <div class="col-md-3"><label for="contactDate">Contact date</label></div>
+                  <div class="col-md-7"><input type="date" id="contactDate" ng-model="contactDate" class="form-control" placeholder="MM/DD/YY"></input></div>
               </div>
           <div class="row">
-              <div class="col-md-4"><label for="activityType">Activity Type</label></div>
-              <div class="col-md-8">
+              <div class="col-md-3"><label for="activityType">Activity Type</label></div>
+              <div class="col-md-7">
                 <select ng-model="activityType" id="activityType" class="form-control">
-                  <option>Select...</option>
+                  <option value="" selected>Select...</option>
                   <option value="employer">Employer Contact</option>
                   <option value="worksource">WorkSource activity</option>
                 </select>
               </div>
           </div>
-        <div class="row">
-            <div class="col-md-4"><label for="contactType">Employer Contact Type</label></div>
-            <div class="col-md-8">
+        <div class="row" ng-show="activityType == 'employer'">
+            <div class="col-md-3"><label for="contactType">Employer Contact Type</label></div>
+            <div class="col-md-7">
                 <select ng-model="contactType" id="contactType" class="form-control">
-                    <option>Select...</option>
+                    <option value="" selected>Select...</option>
                     <option value="application">Application/resume</option>
                     <option value="interview">Interview</option>
                     <option value="inquiry">Inquiry</option>
                 </select></div>
         </div>
-        <div class="row">
-          <div class="col-md-4"><label for="contactMethod">How Contacted</label></div>
-          <div class="col-md-8">
+        <div class="row" ng-show="activityType == 'employer'">
+          <div class="col-md-3"><label for="contactMethod">How Contacted</label></div>
+          <div class="col-md-7">
               <select ng-model="contactMethod" id="contactMethod" class="form-control">
-                <option>Select...</option>
+                <option value="" selected>Select...</option>
                 <option value="online">Online/email</option>
                 <option value="fax">Fax</option>
                 <option value="inPerson">In person</option>
@@ -40,77 +40,76 @@
               </select>
             </div>
           </div>
-          
-    <div ng-show="activityType == 'employer'">
-        <div class="row text-center">
-            <h4>If employer contact was in person, by kiosk or by telephone, you MUST complete this section.</h4>
-        </div>  
-        <div class="row">
-              <div class="col-md-4"><label for="employer">Employer</label></div>
-              <div class="col-md-8"><input type=text ng-model="employer" id="employer" class="form-control"></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="phone">Telephone</label></div>
-              <div class="col-md-8"><input type=tel ng-model="phone" id="phone" class="form-control"></input></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="address">Address</label></div>
-              <div class="col-md-8"><input type=text ng-model="address" id="address" class="form-control"></input></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="city">City</label></div>
-              <div class="col-md-8"><input type=text ng-model="city" id="city" class="form-control"></input></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="state">State</label></div>
-              <div class="col-md-8"><input type=text ng-model="state" id="state" class="form-control"></input></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="contact">Name or position of person contacted</label></div>
-              <div class="col-md-8"><input type=text ng-model="contact" id="contact" class="form-control"></input></div>
-        </div>
-</div>
-<div ng-show="activityType == 'worksource'">
-        <div class="row text-center">
-            <h4>If employer contact was made online, by email, by fax or by newspaper, you MUST complete the appropriate information in this section.</h4>
-        </div>  
-        <div class="row">
-              <div class="col-md-4"><label for="employer">Employer</label></div>
-              <div class="col-md-8"><input type=text id="employer" class="form-control"></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="website">Website</label></div>
-              <div class="col-md-8"><input type=url id="website" class="form-control"></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="email">email</label></div>
-              <div class="col-md-8"><input type=email id="email" class="form-control"></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="jobRefNumber">Job Reference Number</label></div>
-              <div class="col-md-8"><input type=text id="jobRefNumber" class="form-control"></input></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="fax">If fax, provide fax number</label></div>
-              <div class="col-md-8"><input type=tel id="fax" class="form-control"></input></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="newspaperName">Newspaper name</label></div>
-              <div class="col-md-8"><input type=text id="newspaperName" class="form-control"></input></div>
-        </div>
-        <div class="row">
-              <div class="col-md-4"><label for="publicationDate">Publication date</label></div>
-              <div class="col-md-8"><input type=date id="publicationDate" class="form-control"></input></div>
+            <div class="row" ng-show="contactMethod == 'other'">
+              <div class="col-md-3"><label for="other">Describe Other</label></div>
+              <div class="col-md-7"><input type=text ng-model="other" id="other" class="form-control"></input></div>
         </div>
 
-<div class="row">
-              <div class="col-md-4"><label for="activityDescription">For WorkSource activity, briefly describe</label></div>
-              <div class="col-md-8"><textarea id="activityDescription" class="form-control"></textarea></div>
+    <hr>
+    
+        <div class="row" ng-show="(contactMethod == 'inPerson' || contactMethod == 'kiosk' || contactMethod == 'mail' || contactMethod == 'phone' || contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other')">
+              <div class="col-md-3"><label for="employer">Employer</label></div>
+              <div class="col-md-7"><input type=text ng-model="employer" id="employer" class="form-control"></div>
+        </div>
+        <div class="row" ng-show="(contactMethod == 'inPerson' || contactMethod == 'kiosk' || contactMethod == 'mail' || contactMethod == 'phone' || contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other')">
+              <div class="col-md-3"><label for="position">Position</label></div>
+              <div class="col-md-7"><input type=text ng-model="position" id="position" class="form-control"></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'inPerson' || contactMethod == 'kiosk' || contactMethod == 'mail' || contactMethod == 'phone'">
+              <div class="col-md-3"><label for="phone">Telephone</label></div>
+              <div class="col-md-7"><input type=tel ng-model="phone" id="phone" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'inPerson' || contactMethod == 'kiosk' || contactMethod == 'mail' || contactMethod == 'phone'">
+              <div class="col-md-3"><label for="address">Address</label></div>
+              <div class="col-md-7"><input type=text ng-model="address" id="address" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'inPerson' || contactMethod == 'kiosk' || contactMethod == 'mail' || contactMethod == 'phone'">
+              <div class="col-md-3"><label for="city">City</label></div>
+              <div class="col-md-7"><input type=text ng-model="city" id="city" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'inPerson' || contactMethod == 'kiosk' || contactMethod == 'mail' || contactMethod == 'phone'">
+              <div class="col-md-3"><label for="state">State</label></div>
+              <div class="col-md-7"><input type=text ng-model="state" id="state" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'inPerson' || contactMethod == 'kiosk' || contactMethod == 'mail' || contactMethod == 'phone'">
+              <div class="col-md-3"><label for="contact">Name or position of person contacted</label></div>
+              <div class="col-md-7"><input type=text ng-model="contact" id="contact" class="form-control"></input></div>
+        </div>
+
+        <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
+              <div class="col-md-3"><label for="website">Website</label></div>
+              <div class="col-md-7"><input type=url id="website" ng-model="website" class="form-control"></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
+              <div class="col-md-3"><label for="email">email</label></div>
+              <div class="col-md-7"><input type=email id="email" ng-model="email" class="form-control"></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
+              <div class="col-md-3"><label for="jobRefNumber">Job Reference Number</label></div>
+              <div class="col-md-7"><input type=text id="jobRefNumber" ng-model="jobRefNumber" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
+              <div class="col-md-3"><label for="fax">If fax, provide fax number</label></div>
+              <div class="col-md-7"><input type=tel id="fax" ng-model="fax" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
+              <div class="col-md-3"><label for="newspaperName">Newspaper name</label></div>
+              <div class="col-md-7"><input type=text id="newspaperName" ng-model="newspaperName" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
+              <div class="col-md-3"><label for="publicationDate">Publication date</label></div>
+              <div class="col-md-7"><input type=date id="publicationDate" ng-model="publicationDate" class="form-control"></input></div>
+        </div>
+
+<div ng-show="activityType == 'worksource'">
+        <div class="row">
+              <div class="col-md-3"><label for="activityDescription">For WorkSource activity, briefly describe</label></div>
+              <div class="col-md-7"><textarea id="activityDescription" ng-model="activityDescription" class="form-control"></textarea></div>
           </div>
 </div>
         <hr>
-        <div class="row text-left col-md-offset-4 col-md-8">
-              <div ><button ng-submit="addActivity()" type="submit" class="btn btn-primary">Submit</button></div>
+        <div class="row text-left col-md-offset-3 col-md-7">
+              <div ><button id="submit" type="submit" class="btn btn-primary">Submit</button></div>
         </div>    
 
 </form>

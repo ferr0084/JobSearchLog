@@ -1,9 +1,9 @@
 <div class="jumbotron text-right">
-    <form name="activity" ng-controller="newActivityCtrl" ng-submit="addActivity()">
+    <form name="addActivityForm" ng-controller="newActivityCtrl" ng-submit="addActivity()">
 
         <div class="row">
                   <div class="col-md-3"><label for="contactDate">Contact date</label></div>
-                  <div class="col-md-7"><input type="date" id="contactDate" ng-model="contactDate" class="form-control" placeholder="MM/DD/YY"></input></div>
+                  <div class="col-md-7"><input type="date" id="contactDate" ng-model="contactDate" class="form-control"></input></div>
               </div>
           <div class="row">
               <div class="col-md-3"><label for="activityType">Activity Type</label></div>

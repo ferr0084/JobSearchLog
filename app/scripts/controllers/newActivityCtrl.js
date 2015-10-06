@@ -16,7 +16,6 @@ function NewActivityCtrl($scope, $http) {
             var store = tx.objectStore("activities");
 
             store.put({
-                id: 5,
                 contactDate: $scope.contactDate,
                 activityType: $scope.activityType,
                 contactType: $scope.contactType,
@@ -37,7 +36,7 @@ function NewActivityCtrl($scope, $http) {
                 publicationDate: $scope.publicationDate,
                 activityDescription: $scope.activityDescription
             });
-    
+                
             tx.oncomplete = function() {
                 $scope.contactDate = '';
                 $scope.activityType = '';
@@ -58,6 +57,7 @@ function NewActivityCtrl($scope, $http) {
                 $scope.newspaperName = '';
                 $scope.publicationDate = '';
                 $scope.activityDescription = '';
+                $scope.addActivityForm.$setPristine();
             };
             
         };    

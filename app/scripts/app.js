@@ -41,7 +41,7 @@ angular
 function MainCtrl($scope) {
     $scope.message = 'Welcome to Job Search Log!';
         
-    var request = indexedDB.open("JobSearchLog",3);
+    var request = indexedDB.open("JobSearchLog",5);
     var db;
     
     request.onupgradeneeded = function() {
@@ -54,7 +54,7 @@ function MainCtrl($scope) {
 
         // Populate with initial data.
         store.put({
-            contactDate: "08/14/2015",
+            contactDate: Date.now(),
             contactType: "application",
             contactMethod: "online",
             activityType: "employer",
@@ -64,7 +64,7 @@ function MainCtrl($scope) {
             jobRefNumber: "12345"
         });
         store.put({
-            contactDate: "08/14/2015",
+            contactDate: Date.now(),
             contactType: "application",
             contactMethod: "online",
             activityType: "employer",
@@ -74,7 +74,7 @@ function MainCtrl($scope) {
             jobRefNumber: "BR1245"
         });
         store.put({
-            contactDate: "08/14/2015",
+            contactDate: Date.now(),
             contactType: "application",
             contactMethod: "online",
             activityType: "employer",

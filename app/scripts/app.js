@@ -41,19 +41,19 @@ angular
 function MainCtrl($scope) {
     $scope.message = 'Welcome to Job Search Log!';
         
-    var request = indexedDB.open("JobSearchLog");
+    var request = indexedDB.open("JobSearchLog",3);
     var db;
     
     request.onupgradeneeded = function() {
         // The database did not previously exist, so create object stores and indexes.
         db = request.result;
+        db.deleteObjectStore("activities");
         var store = db.createObjectStore("activities", {keyPath: "id", autoIncrement: true});
         var idIndex = store.createIndex("by_id", "id", {unique: true});
         var employerIndex = store.createIndex("by_employer", "employer");
 
         // Populate with initial data.
         store.put({
-            id: 1,
             contactDate: "08/14/2015",
             contactType: "application",
             contactMethod: "online",
@@ -64,7 +64,6 @@ function MainCtrl($scope) {
             jobRefNumber: "12345"
         });
         store.put({
-            id: 2,
             contactDate: "08/14/2015",
             contactType: "application",
             contactMethod: "online",
@@ -75,7 +74,6 @@ function MainCtrl($scope) {
             jobRefNumber: "BR1245"
         });
         store.put({
-            id: 3,
             contactDate: "08/14/2015",
             contactType: "application",
             contactMethod: "online",

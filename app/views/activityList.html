@@ -14,7 +14,7 @@
     </thead>
     <tbody class="">
         <tr ng-repeat="activity in activities | filter:query">
-            <td class="col-md-1">{{activity.contactDate}}</td>
+            <td class="col-md-1">{{activity.contactDate | date : 'yyyy-MM-dd'}}</td>
             <td class="col-md-1">{{activity.activityType}}</td>
             <td class="col-md-1">{{activity.contactType}}</td>
             <td class="col-md-1">{{activity.jobRefNumber}}</td>

@@ -55,34 +55,34 @@ function MainCtrl($scope) {
         store.put({
             id: 1,
             contactDate: "08/14/2015",
-            contactType: "employer",
+            contactType: "application",
             contactMethod: "online",
-            activityType: "application",
+            activityType: "employer",
             position: "Sr. Software Engineer",
             employer: "Tableau",
-            contact: "joe@example.com",
+            email: "joe@example.com",
             jobRefNumber: "12345"
         });
         store.put({
             id: 2,
             contactDate: "08/14/2015",
-            contactType: "employer",
+            contactType: "application",
             contactMethod: "online",
-            activityType: "application",
+            activityType: "employer",
             position: "Software Engineer",
             employer: "Google",
-            contact: "bob@example.com",
+            email: "bob@example.com",
             jobRefNumber: "BR1245"
         });
         store.put({
             id: 3,
             contactDate: "08/14/2015",
-            contactType: "employer",
+            contactType: "application",
             contactMethod: "online",
-            activityType: "application",
+            activityType: "employer",
             position: "Software Engineer, Java",
             employer: "Adobe",
-            contact: "tom@example.com",
+            email: "tom@example.com",
             jobRefNumber: "5432A"
         });
     };

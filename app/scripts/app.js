@@ -18,8 +18,8 @@ angular
         })
 
         .when('/new', {
-            templateUrl : 'views/newActivity.html',
-            controller  : 'newActivityCtrl'
+            templateUrl : 'views/addActivity.html',
+            controller  : 'addActivityCtrl'
         })
 
         .when('/about', {

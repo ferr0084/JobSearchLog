@@ -2,9 +2,9 @@
 
 angular
     .module('app')
-    .controller('newActivityCtrl', ['$scope', '$http', NewActivityCtrl]);
+    .controller('addActivityCtrl', ['$scope', '$http', AddActivityCtrl]);
                                     
-function NewActivityCtrl($scope, $http) {    
+function AddActivityCtrl($scope, $http) {    
 
     $scope.addActivity = function(){
         

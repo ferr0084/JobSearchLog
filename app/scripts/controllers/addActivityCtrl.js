@@ -35,8 +35,8 @@ function AddActivityCtrl($scope, $http) {
                 newspaperName: $scope.newspaperName,
                 publicationDate: $scope.publicationDate,
                 activityDescription: $scope.activityDescription
-            });
-                
+            });                
+            
             tx.oncomplete = function() {
                 $scope.contactDate = '';
                 $scope.activityType = '';
@@ -58,6 +58,7 @@ function AddActivityCtrl($scope, $http) {
                 $scope.publicationDate = '';
                 $scope.activityDescription = '';
                 $scope.addActivityForm.$setPristine();
+                $scope.$apply();
             };
             
         };    

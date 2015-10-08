@@ -81,23 +81,23 @@
               <div class="col-md-7"><input type=url id="website" ng-model="website" class="form-control"></div>
         </div>
         <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
-              <div class="col-md-3"><label for="email">email</label></div>
+              <div class="col-md-3"><label for="email">Email</label></div>
               <div class="col-md-7"><input type=email id="email" ng-model="email" class="form-control"></div>
         </div>
         <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
               <div class="col-md-3"><label for="jobRefNumber">Job Reference Number</label></div>
               <div class="col-md-7"><input type=text id="jobRefNumber" ng-model="jobRefNumber" class="form-control"></input></div>
         </div>
-        <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
-              <div class="col-md-3"><label for="fax">If fax, provide fax number</label></div>
+        <div class="row" ng-show="contactMethod == 'fax'">
+              <div class="col-md-3"><label for="fax">Fax Number</label></div>
               <div class="col-md-7"><input type=tel id="fax" ng-model="fax" class="form-control"></input></div>
         </div>
         <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
-              <div class="col-md-3"><label for="newspaperName">Newspaper name</label></div>
+              <div class="col-md-3"><label for="newspaperName">Newspaper Name</label></div>
               <div class="col-md-7"><input type=text id="newspaperName" ng-model="newspaperName" class="form-control"></input></div>
         </div>
         <div class="row" ng-show="contactMethod == 'online' || contactMethod == 'email' || contactMethod == 'fax' || contactMethod == 'other'">
-              <div class="col-md-3"><label for="publicationDate">Publication date</label></div>
+              <div class="col-md-3"><label for="publicationDate">Publication Date</label></div>
               <div class="col-md-7"><input type=date id="publicationDate" ng-model="publicationDate" class="form-control"></input></div>
         </div>
 

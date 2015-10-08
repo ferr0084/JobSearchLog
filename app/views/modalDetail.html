@@ -1,12 +1,105 @@
 <div>
     <div class="modal-header">
-        <h3 class="modal-title">I'm a modal!</h3>
+        <h3 class="modal-title">Activity Details</h3>
     </div>
     <div class="modal-body">
-        Can you see me?
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="contactDate">Contact date</label></div>
+            <div class="col-md-6 text-left"><span id="contactDate">{{activity.contactDate | date : 'shortDate' }}</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="activityType">Activity Type</label></div>
+            <div class="col-md-6 text-left"><span id="activityType">{{activity.activityType}}</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="contactType">Contact Type</label></div>
+            <div class="col-md-6 text-left"><span id="contactType">{{activity.contactType}}</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="contactMethod">Contact Method</label></div>
+            <div class="col-md-6 text-left">
+                <span id="contactMethod">{{activity.contactMethod}}</span>
+                <span id="other" ng-show="activity.contactMethod == 'other'"> - {{activity.other}}</span>
+            </div>
+        </div>
+        <hr>
+        <div class="row" ng-show="(activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone' || activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other')">              
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="employer">Employer</label></div>
+            <div class="col-md-6 text-left"><span id="employer">{{activity.employer}}</span></div>
+        </div>
+        <div class="row" ng-show="(activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone' || activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other')">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="position">Position</label></div>
+            <div class="col-md-6 text-left"><span id="position">{{activity.position}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="phone">Telephone</label></div>
+            <div class="col-md-6 text-left"><span id="phone">{{activity.phone}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="address">Address</label></div>
+            <div class="col-md-6 text-left"><span id="address">{{activity.address}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="city">City</label></div>
+            <div class="col-md-6 text-left"><span id="city">{{activity.city}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="state">State</label></div>
+            <div class="col-md-6 text-left"><span id="state">{{activity.state}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="contact">Contact Name or Position</label></div>
+            <div class="col-md-6 text-left"><span id="contact">{{activity.contact}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="website">Website</label></div>
+            <div class="col-md-6 text-left"><span id="website">{{activity.website}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="email">email</label></div>
+            <div class="col-md-6 text-left"><span id="email">{{activity.email}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="jobRefNumber">Job Reference Number</label></div>
+            <div class="col-md-6 text-left"><span id="jobRefNumber">{{activity.jobRefNumber}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="fax">Fax number</label></div>
+            <div class="col-md-6 text-left"><span id="fax">{{activity.fax}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="newspaperName">Newspaper name</label></div>
+            <div class="col-md-6 text-left"><span id="newspaperName">{{activity.newspaperName}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="publicationDate">Publication date</label></div>
+            <div class="col-md-6 text-left"><span id="publicationDate">{{activity.publicationDate}}</span></div>
+        </div>
+        <div class="row" ng-show="activity.activityType == 'worksource'">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-right"><label for="activityDescription">WorkSource activity description</label></div>
+            <div class="col-md-6 text-left"><span id="activityDescription">{{activity.activityDescription}}</span></div>
+        </div>
+
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary" type="button" ng-click="close()">Close</button>
     </div>
 </div>

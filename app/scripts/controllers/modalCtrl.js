@@ -2,14 +2,16 @@
 
 angular
     .module('app')
-    .controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+    .controller('ModalInstanceCtrl', function ($scope, $modalInstance, activity) {
 
-  $scope.ok = function () {
-    $modalInstance.close();
-  };
+    $scope.activity = activity;
+    
+    $scope.close = function () {
+        $modalInstance.close();
+    };
 
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
     
 });

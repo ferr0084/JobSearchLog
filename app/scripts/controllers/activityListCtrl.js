@@ -35,7 +35,15 @@ function ActivityListCtrl($scope, $modal){
             animation: true,
             templateUrl: '../../views/modalDetail.html',
             controller: 'ModalInstanceCtrl',
-            size: 'lg'
+            resolve: {
+                'activity': function() { 
+                    for(var i = 0;i<$scope.activities.length;i++){
+                        if($scope.activities[i].id == id){
+                            return $scope.activities[i];         
+                        }
+                    }
+                }
+            }
         });
     };
 

@@ -33,9 +33,7 @@ angular
         });
 })
     // add controllers
-    .controller('mainCtrl', MainCtrl)
-    .controller('aboutCtrl', AboutCtrl )
-    .controller('contactCtrl', ContactCtrl);
+    .controller('mainCtrl', MainCtrl);
 
 
 function MainCtrl($scope) {
@@ -52,51 +50,10 @@ function MainCtrl($scope) {
         var idIndex = store.createIndex("by_id", "id", {unique: true});
         var employerIndex = store.createIndex("by_employer", "employer");
 
-        // Populate with initial data.
-        store.put({
-            contactDate: Date.now(),
-            contactType: "application",
-            contactMethod: "online",
-            activityType: "employer",
-            position: "Sr. Software Engineer",
-            employer: "Tableau",
-            email: "joe@example.com",
-            jobRefNumber: "12345"
-        });
-        store.put({
-            contactDate: Date.now(),
-            contactType: "application",
-            contactMethod: "online",
-            activityType: "employer",
-            position: "Software Engineer",
-            employer: "Google",
-            email: "bob@example.com",
-            jobRefNumber: "BR1245"
-        });
-        store.put({
-            contactDate: Date.now(),
-            contactType: "application",
-            contactMethod: "online",
-            activityType: "employer",
-            position: "Software Engineer, Java",
-            employer: "Adobe",
-            email: "tom@example.com",
-            jobRefNumber: "5432A"
-        });
     };
 
     request.onsuccess = function() {
         db = request.result;
     };
         
-};
-
-
-function AboutCtrl($scope) {
-    $scope.message = 'This app is for logging your job search activities.';
-};
-
-
-function ContactCtrl($scope) {
-    $scope.message = 'Put contact info here eventually...';
 };

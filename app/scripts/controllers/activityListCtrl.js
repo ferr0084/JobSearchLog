@@ -2,9 +2,9 @@
 
 angular
     .module('app')
-    .controller('activityListCtrl', [ '$scope', ActivityListCtrl ]);
+    .controller('activityListCtrl', [ '$scope', '$modal', ActivityListCtrl ]);
                 
-function ActivityListCtrl($scope){
+function ActivityListCtrl($scope, $modal){
     
     $scope.loadActivities = function(){
         $scope.activities = [];
@@ -25,13 +25,18 @@ function ActivityListCtrl($scope){
                     cursor.continue();
                 } 
             }
-        }
-    }
+        };
+    };
     
     $scope.loadActivities();
     
     $scope.openActivity = function(id){
-        window.alert("clicked open " + id);
+        var modalInstance = $modal.open({
+            animation: true,
+            templateUrl: '../../views/modalDetail.html',
+            controller: 'ModalInstanceCtrl',
+            size: 'lg'
+        });
     };
 
     $scope.editActivity = function(id){
@@ -63,12 +68,19 @@ function ActivityListCtrl($scope){
 
     };
     
-    function removeActivity(id, array){
+    var removeActivity = function(id, array){
         for(var i = 0; i < array.length; i++){
             if(array[i].id == id){
                 array.splice(i, 1);   
             }
         }
-    }
+    };
     
+    $scope.ok = function () {
+        $scope.$parent.close();
+    };
+
+    $scope.cancel = function () {
+        $scope.$parent.dismiss('cancel');
+    };
 };

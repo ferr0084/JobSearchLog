@@ -1,7 +1,7 @@
 'use strict';
     
 angular
-    .module('app', ['ngRoute'])
+    .module('app', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
 
     // configure our routes
     .config(function ($routeProvider) {

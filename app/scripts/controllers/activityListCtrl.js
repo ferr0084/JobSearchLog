@@ -33,8 +33,8 @@ function ActivityListCtrl($scope, $modal){
     $scope.openActivity = function(id){
         var modalInstance = $modal.open({
             animation: true,
-            templateUrl: '../../views/modalDetail.html',
-            controller: 'ModalInstanceCtrl',
+            templateUrl: '../../views/viewActivity.html',
+            controller: 'viewActivityCtrl',
             resolve: {
                 'activity': function() { 
                     for(var i = 0;i<$scope.activities.length;i++){
@@ -84,11 +84,4 @@ function ActivityListCtrl($scope, $modal){
         }
     };
     
-    $scope.ok = function () {
-        $scope.$parent.close();
-    };
-
-    $scope.cancel = function () {
-        $scope.$parent.dismiss('cancel');
-    };
 };

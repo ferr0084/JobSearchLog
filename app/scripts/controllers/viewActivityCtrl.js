@@ -2,7 +2,9 @@
 
 angular
     .module('app')
-    .controller('ModalInstanceCtrl', function ($scope, $modalInstance, activity) {
+    .controller('viewActivityCtrl',  ViewActivityCtrl);
+                
+function ViewActivityCtrl($scope, $modalInstance, activity) {
 
     $scope.activity = activity;
     
@@ -14,4 +16,4 @@ angular
         $modalInstance.dismiss('cancel');
     };
     
-});
+};

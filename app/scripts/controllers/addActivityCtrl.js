@@ -16,47 +16,47 @@ function AddActivityCtrl($scope, $http) {
             var store = tx.objectStore("activities");
 
             store.put({
-                contactDate: $scope.contactDate,
-                activityType: $scope.activityType,
-                contactType: $scope.contactType,
-                contactMethod: $scope.contactMethod,
-                other: $scope.other,
-                employer: $scope.employer,
-                position: $scope.position,
-                phone: $scope.phone,
-                address: $scope.address,
-                city: $scope.city,
-                state: $scope.state,
-                contact: $scope.contact,
-                website: $scope.website,
-                email: $scope.email,
-                jobRefNumber: $scope.jobRefNumber,
-                fax: $scope.fax,
-                newspaperName: $scope.newspaperName,
-                publicationDate: $scope.publicationDate,
-                activityDescription: $scope.activityDescription
+                contactDate: $scope.activity.contactDate,
+                activityType: $scope.activity.activityType,
+                contactType: $scope.activity.contactType,
+                contactMethod: $scope.activity.contactMethod,
+                other: $scope.activity.other,
+                employer: $scope.activity.employer,
+                position: $scope.activity.position,
+                phone: $scope.activity.phone,
+                address: $scope.activity.address,
+                city: $scope.activity.city,
+                state: $scope.activity.state,
+                contact: $scope.activity.contact,
+                website: $scope.activity.website,
+                email: $scope.activity.email,
+                jobRefNumber: $scope.activity.jobRefNumber,
+                fax: $scope.activity.fax,
+                newspaperName: $scope.activity.newspaperName,
+                publicationDate: $scope.activity.publicationDate,
+                activityDescription: $scope.activity.activityDescription
             });                
             
             tx.oncomplete = function() {
-                $scope.contactDate = '';
-                $scope.activityType = '';
-                $scope.contactType = '';
-                $scope.contactMethod = '';
-                $scope.other = '';
-                $scope.employer = '';
-                $scope.position = '';
-                $scope.phone = '';
-                $scope.address = '';
-                $scope.city = '';
-                $scope.state = '';
-                $scope.contact = '';
-                $scope.website = '';
-                $scope.email = '';
-                $scope.jobRefNumber = '';
-                $scope.fax = '';
-                $scope.newspaperName = '';
-                $scope.publicationDate = '';
-                $scope.activityDescription = '';
+                $scope.activity.contactDate = '';
+                $scope.activity.activityType = '';
+                $scope.activity.contactType = '';
+                $scope.activity.contactMethod = '';
+                $scope.activity.other = '';
+                $scope.activity.employer = '';
+                $scope.activity.position = '';
+                $scope.activity.phone = '';
+                $scope.activity.address = '';
+                $scope.activity.city = '';
+                $scope.activity.state = '';
+                $scope.activity.contact = '';
+                $scope.activity.website = '';
+                $scope.activity.email = '';
+                $scope.activity.jobRefNumber = '';
+                $scope.activity.fax = '';
+                $scope.activity.newspaperName = '';
+                $scope.activity.publicationDate = '';
+                $scope.activity.activityDescription = '';
                 $scope.addActivityForm.$setPristine();
                 $scope.$apply();
             };

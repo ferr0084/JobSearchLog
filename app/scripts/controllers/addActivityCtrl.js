@@ -19,25 +19,6 @@ function AddActivityCtrl($scope, $http) {
             
             tx.oncomplete = function() {
                 $scope.activity = null;
-//                $scope.activity.contactDate = '';
-//                $scope.activity.activityType = '';
-//                $scope.activity.contactType = '';
-//                $scope.activity.contactMethod = '';
-//                $scope.activity.other = '';
-//                $scope.activity.employer = '';
-//                $scope.activity.position = '';
-//                $scope.activity.phone = '';
-//                $scope.activity.address = '';
-//                $scope.activity.city = '';
-//                $scope.activity.state = '';
-//                $scope.activity.contact = '';
-//                $scope.activity.website = '';
-//                $scope.activity.email = '';
-//                $scope.activity.jobRefNumber = '';
-//                $scope.activity.fax = '';
-//                $scope.activity.newspaperName = '';
-//                $scope.activity.publicationDate = '';
-//                $scope.activity.activityDescription = '';
                 $scope.addActivityForm.$setPristine();
                 $scope.$apply();
             };

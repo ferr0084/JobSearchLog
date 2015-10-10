@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('app')
+angular
+    .module('app')
     .controller('mainCtrl', MainCtrl);
 
 function MainCtrl($scope) {

@@ -48,7 +48,20 @@ function ActivityListCtrl($scope, $modal){
     };
 
     $scope.editActivity = function(id){
-        window.alert("clicked edit " + id);
+        var modalInstance = $modal.open({
+            animation: true,
+            templateUrl: '../../views/editActivity.html',
+            controller: 'editActivityCtrl',
+            resolve: {
+                'activity': function() { 
+                    for(var i = 0;i<$scope.activities.length;i++){
+                        if($scope.activities[i].id == id){
+                            return $scope.activities[i];         
+                        }
+                    }
+                }
+            }
+        });
     };
 
     $scope.deleteActivity = function(id){

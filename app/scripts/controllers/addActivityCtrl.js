@@ -63,4 +63,5 @@ function AddActivityCtrl($scope, $http) {
             
         };    
     };
+    
 };

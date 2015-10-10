@@ -1,0 +1,122 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Activity</h3>
+    </div>
+    <div class="modal-body">
+    <form name="editActivityForm" ng-submit="editActivity()">
+
+        <div class="row">
+                  <div class="col-md-3"><label for="contactDate">Contact date</label></div>
+                  <div class="col-md-7"><input type="date" id="contactDate" ng-model="activity.contactDate" class="form-control"></input></div>
+              </div>
+          <div class="row">
+              <div class="col-md-3"><label for="activityType">Activity Type</label></div>
+              <div class="col-md-7">
+                <select ng-model="activity.activityType" id="activityType" class="form-control">
+                  <option value="" selected>Select...</option>
+                  <option value="employer">Employer Contact</option>
+                  <option value="worksource">WorkSource activity</option>
+                </select>
+              </div>
+          </div>
+        <div class="row" ng-show="activity.activityType == 'employer'">
+            <div class="col-md-3"><label for="contactType">Employer Contact Type</label></div>
+            <div class="col-md-7">
+                <select ng-model="activity.contactType" id="contactType" class="form-control">
+                    <option value="" selected>Select...</option>
+                    <option value="application">Application/resume</option>
+                    <option value="interview">Interview</option>
+                    <option value="inquiry">Inquiry</option>
+                </select></div>
+        </div>
+        <div class="row" ng-show="activity.activityType == 'employer'">
+          <div class="col-md-3"><label for="contactMethod">How Contacted</label></div>
+          <div class="col-md-7">
+              <select ng-model="activity.contactMethod" id="contactMethod" class="form-control">
+                <option value="" selected>Select...</option>
+                <option value="online">Online/email</option>
+                <option value="fax">Fax</option>
+                <option value="inPerson">In person</option>
+                <option value="mail">Mail</option>
+                <option value="kiosk">Kiosk</option>
+                <option value="phone">Telephone</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+            <div class="row" ng-show="activity.contactMethod == 'other'">
+              <div class="col-md-3"><label for="other">Describe Other</label></div>
+              <div class="col-md-7"><input type=text ng-model="activity.other" id="other" class="form-control"></input></div>
+        </div>
+
+    <hr>
+    
+        <div class="row" ng-show="(activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone' || activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other')">
+              <div class="col-md-3"><label for="employer">Employer</label></div>
+              <div class="col-md-7"><input type=text ng-model="activity.employer" id="employer" class="form-control"></div>
+        </div>
+        <div class="row" ng-show="(activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone' || activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other')">
+              <div class="col-md-3"><label for="position">Position</label></div>
+              <div class="col-md-7"><input type=text ng-model="activity.position" id="position" class="form-control"></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+              <div class="col-md-3"><label for="phone">Telephone</label></div>
+              <div class="col-md-7"><input type=tel ng-model="activity.phone" id="phone" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+              <div class="col-md-3"><label for="address">Address</label></div>
+              <div class="col-md-7"><input type=text ng-model="activity.address" id="address" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+              <div class="col-md-3"><label for="city">City</label></div>
+              <div class="col-md-7"><input type=text ng-model="activity.city" id="city" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+              <div class="col-md-3"><label for="state">State</label></div>
+              <div class="col-md-7"><input type=text ng-model="activity.state" id="state" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'inPerson' || activity.contactMethod == 'kiosk' || activity.contactMethod == 'mail' || activity.contactMethod == 'phone'">
+              <div class="col-md-3"><label for="contact">Name or position of person contacted</label></div>
+              <div class="col-md-7"><input type=text ng-model="activity.contact" id="contact" class="form-control"></input></div>
+        </div>
+
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+              <div class="col-md-3"><label for="website">Website</label></div>
+              <div class="col-md-7"><input type=url id="website" ng-model="activity.website" class="form-control"></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+              <div class="col-md-3"><label for="email">Email</label></div>
+              <div class="col-md-7"><input type=email id="email" ng-model="activity.email" class="form-control"></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+              <div class="col-md-3"><label for="jobRefNumber">Job Reference Number</label></div>
+              <div class="col-md-7"><input type=text id="jobRefNumber" ng-model="activity.jobRefNumber" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'fax'">
+              <div class="col-md-3"><label for="fax">Fax Number</label></div>
+              <div class="col-md-7"><input type=tel id="fax" ng-model="activity.fax" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+              <div class="col-md-3"><label for="newspaperName">Newspaper Name</label></div>
+              <div class="col-md-7"><input type=text id="newspaperName" ng-model="activity.newspaperName" class="form-control"></input></div>
+        </div>
+        <div class="row" ng-show="activity.contactMethod == 'online' || activity.contactMethod == 'email' || activity.contactMethod == 'fax' || activity.contactMethod == 'other'">
+              <div class="col-md-3"><label for="publicationDate">Publication Date</label></div>
+              <div class="col-md-7"><input type=date id="publicationDate" ng-model="activity.publicationDate" class="form-control"></input></div>
+        </div>
+
+<div ng-show="activity.activityType == 'worksource'">
+        <div class="row">
+              <div class="col-md-3"><label for="activityDescription">For WorkSource activity, briefly describe</label></div>
+              <div class="col-md-7"><textarea id="activityDescription" ng-model="activity.activityDescription" class="form-control"></textarea></div>
+          </div>
+</div>
+        <hr>
+        <div class="row text-left col-md-offset-3">
+            <div class="col-md-2"><button id="submit" type="submit" class="btn btn-primary">Submit</button></div>
+            <div class="col-md-2"><button class="btn btn-primary" type="button" ng-click="close()">Cancel</button></div>
+        </div>    
+
+</form>
+</div>
+</div>
